@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="description" content="Kézzel festett, egyedi ruhadarabok és textil kiegészítők.">
+    <title>tunderr0zsa</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f5ef;
+        --ink: #26382f;
+        --muted: #69756c;
+        --accent: #6b8069;
+        --line: #deded4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(100% - 48px, 1080px);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        font-family: Arial, sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .wordmark {
+        font-weight: 700;
+      }
+
+      .topbar a {
+        text-decoration: none;
+      }
+
+      .intro {
+        max-width: 740px;
+        padding: clamp(64px, 11vw, 126px) 0 76px;
+      }
+
+      .eyebrow {
+        margin: 0 0 20px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .intro-title-row {
+        display: flex;
+        align-items: center;
+        gap: clamp(16px, 3vw, 28px);
+      }
+
+      .intro-logo {
+        flex: 0 0 auto;
+        width: clamp(72px, 14vw, 148px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 7vw, 6.5rem);
+        font-weight: 400;
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      .story-content {
+        max-width: 740px;
+        margin-top: 48px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .story-content h2 {
+        margin-bottom: 20px;
+        color: var(--ink);
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+      }
+
+      .story-content p {
+        margin: 0 0 18px;
+      }
+
+      .story-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .gallery-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .gallery-note {
+        margin: 0;
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.8rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 260px;
+        gap: 16px;
+      }
+
+      .photo {
+        overflow: hidden;
+        margin: 0;
+        background: #e5e3d9;
+      }
+
+      .photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 350ms ease;
+      }
+
+      .photo:hover img {
+        transform: scale(1.035);
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-top: 76px;
+        padding: 28px 0 36px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.85rem;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--ink);
+        font-weight: 700;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .social-link svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          width: min(100% - 32px, 520px);
+        }
+
+        .topbar {
+          padding: 22px 0;
+          font-size: 0.65rem;
+        }
+
+        .intro {
+          padding: 78px 0 58px;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 220px;
+          gap: 10px;
+        }
+
+        .gallery-note {
+          max-width: 125px;
+          text-align: right;
+          line-height: 1.5;
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 14px;
+          margin-top: 56px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="Home">tunderr0zsa</a>
+        <a href="mailto:farkasdoniz@gmail.com">Írj nekem <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="intro-title">
+          <p class="eyebrow">Kézzel festett, egyedi ruhadarabok és textil kiegészítők</p>
+          <br>
+          <div class="intro-title-row">
+            <img class="intro-logo" src="beka.jpg" alt="A tunderr0zsa kézzel festett békalogó">
+            <h1 id="intro-title">tunderr0zsa</h1>
+          </div>
+          <div class="story-content">
+            <h2>Alkotásaim rövid története</h2>
+            <p>🎨 Korábban főleg vászonképeket festettem, amelyekből idővel annyi készült, hogy egyre nehezebb volt helyet találnom nekik. Aztán Portugáliában találkoztam kézzel festett ruhákkal. Annyira megtetszettek az alkotó munkái, hogy ott helyben vettem is egy farmerdzsekit és egy pulóvert. Nemcsak a ruhák tetszettek, hanem az is, hogy a vásárlással egy alkotót támogathatok.</p>
+            <p>👚 Ekkor jött az ötlet: miért ne festhetnék én is ruhákra?</p>
+            <p>✨ Szerettem volna olyan dolgokat készíteni, amelyek nem csak egy falon vagy a szoba sarkában kapnak helyet, hanem a mindennapok részei lehetnek. Így kezdtem el először magamnak, majd barátoknak és rokonoknak ruhákat festeni.</p>
+            <p>♻️ Nagyon megszerettem ezt a fajta alkotást. Persze továbbra is imádok festeni, de ebben az egészben az is különösen tetszik, hogy új életet adhatok olyan ruháknak, amelyek talán már megunt darabok lennének. Egy kis festékkel és kreativitással pedig akár valaki más új kedvencévé válhatnak.</p>
+            <p>❣️ Számomra ezért a kézzel festett ruhák nemcsak egyedi darabok, hanem egy kicsit a fenntarthatóságról is szólnak: Kevesebb új dolog, több új élet.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="gallery-title">
+          <div class="gallery-heading">
+            <h2 id="gallery-title">Néhány kedvencem</h2>
+            <p class="gallery-note">Újak és régiek egyaránt</p>
+          </div>
+          <div class="gallery">
+            <figure class="photo">
+              <img
+                src="IMG_0440.JPG"
+                alt="Kézzel festett vászontáska színes házakkal"
+                fetchpriority="high"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1016.JPG"
+                alt="Szürke trikó színes kézzel festett rovarokkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1356.JPG"
+                alt="Fekete trikó színes geometrikus mintákkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1479.JPG"
+                alt="Fekete póló kézzel festett piros mintával"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1530.JPG"
+                alt="Világos póló színes arc- és koktélmintákkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1557.JPG"
+                alt="Kék póló kézzel festett sakkfigurákkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1626.JPG"
+                alt="Fehér póló színes halcsontváz-mintával"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1674.JPG"
+                alt="Kézzel festett vászontáska tengeri mintákkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1722.JPG"
+                alt="Világos póló kézzel festett tengeri élőlényekkel"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_1826.JPG"
+                alt="Zöld póló szarvassal és őszi levelekkel"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_2045.JPG"
+                alt="Korallszínű póló kézzel festett tájképpel"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_2112.JPG"
+                alt="Rózsaszín pulóver színes karácsonyi mintákkal"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_2193.JPG"
+                alt="Egyedi, kézzel festett ruhadarab"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="IMG_2238.JPG"
+                alt="Egyedi, kézzel festett ruhadarab"
+                loading="lazy"
+              >
+            </figure>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Köszönöm, hogy benéztél.</span>
+        <div class="social-links">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=61594642867715" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.6V13h2.7v8h3.1Z"></path>
+            </svg>
+            Kövess Facebookon
+          </a>
+          <a class="social-link" href="https://www.instagram.com/tunderr0zsa_art/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+            Kövess Instagramon
+          </a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
