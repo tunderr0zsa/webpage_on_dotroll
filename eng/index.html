@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="description" content="Hand-painted, one-of-a-kind clothing and textile accessories.">
+    <title>tunderr0zsa</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f5ef;
+        --ink: #26382f;
+        --muted: #69756c;
+        --accent: #6b8069;
+        --line: #deded4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(100% - 48px, 1080px);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        font-family: Arial, sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .wordmark {
+        font-weight: 700;
+      }
+
+      .topbar a {
+        text-decoration: none;
+      }
+
+      .intro {
+        max-width: 740px;
+        padding: clamp(64px, 11vw, 126px) 0 76px;
+      }
+
+      .eyebrow {
+        margin: 0 0 20px;
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .intro-title-row {
+        display: flex;
+        align-items: center;
+        gap: clamp(16px, 3vw, 28px);
+      }
+
+      .intro-logo {
+        flex: 0 0 auto;
+        width: clamp(72px, 14vw, 148px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 7vw, 6.5rem);
+        font-weight: 400;
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      .story-content {
+        max-width: 740px;
+        margin-top: 48px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .story-content h2 {
+        margin-bottom: 20px;
+        color: var(--ink);
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+      }
+
+      .story-content p {
+        margin: 0 0 18px;
+      }
+
+      .story-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .gallery-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .gallery-note {
+        margin: 0;
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.8rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 260px;
+        gap: 16px;
+      }
+
+      .photo {
+        overflow: hidden;
+        margin: 0;
+        background: #e5e3d9;
+      }
+
+      .photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 350ms ease;
+      }
+
+      .photo:hover img {
+        transform: scale(1.035);
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-top: 76px;
+        padding: 28px 0 36px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.85rem;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--ink);
+        font-weight: 700;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .social-link svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          width: min(100% - 32px, 520px);
+        }
+
+        .topbar {
+          padding: 22px 0;
+          font-size: 0.65rem;
+        }
+
+        .intro {
+          padding: 78px 0 58px;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 220px;
+          gap: 10px;
+        }
+
+        .gallery-note {
+          max-width: 125px;
+          text-align: right;
+          line-height: 1.5;
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 14px;
+          margin-top: 56px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="Home">tunderr0zsa</a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="intro-title">
+          <p class="eyebrow">Hand-painted, one-of-a-kind clothing and textile accessories</p>
+          <br>
+          <div class="intro-title-row">
+            <img class="intro-logo" src="../beka.jpg" alt="The hand-painted tunderr0zsa frog logo">
+            <h1 id="intro-title">tunderr0zsa</h1>
+          </div>
+          <div class="story-content">
+            <h2>A little story behind my creations</h2>
+            <p>🎨 I used to paint mostly canvas pictures, and over time I made so many that it became increasingly difficult to find space for them. Then, in Portugal, I came across hand-painted clothes. I loved the artist’s work so much that I bought a denim jacket and a sweater right there. I liked not only the clothes, but also the fact that my purchase supported an artist.</p>
+            <p>👚 That’s when I had the idea: why not paint on clothes myself?</p>
+            <p>✨ I wanted to make things that wouldn’t just hang on a wall or sit in the corner of a room, but could become part of everyday life. So I started painting clothes first for myself, and then for friends and family.</p>
+            <p>♻️ I’ve really fallen in love with this kind of creative work. I still love painting, of course, but one thing I especially enjoy about it is giving new life to clothes that might otherwise have become forgotten. With a little paint and creativity, they can become someone else’s new favorite.</p>
+            <p>❣️ That’s why, to me, hand-painted clothes are not just one-of-a-kind pieces; they’re also a little about sustainability: fewer new things, more new life.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="gallery-title">
+          <div class="gallery-heading">
+            <h2 id="gallery-title">A few of my favorites</h2>
+            <p class="gallery-note">Old and new alike</p>
+          </div>
+          <div class="gallery">
+            <figure class="photo">
+              <img
+                src="../IMG_0440.JPG"
+                alt="Hand-painted canvas tote bag with colorful houses"
+                fetchpriority="high"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1016.JPG"
+                alt="Gray tank top with colorful hand-painted insects"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1356.JPG"
+                alt="Black tank top with colorful geometric patterns"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1479.JPG"
+                alt="Black T-shirt with a hand-painted red design"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1530.JPG"
+                alt="Light-colored T-shirt with colorful face and cocktail designs"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1557.JPG"
+                alt="Blue T-shirt with hand-painted chess pieces"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1626.JPG"
+                alt="White T-shirt with a colorful fish skeleton design"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1674.JPG"
+                alt="Hand-painted canvas tote bag with ocean-inspired designs"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1722.JPG"
+                alt="Light-colored T-shirt with hand-painted sea creatures"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_1826.JPG"
+                alt="Green T-shirt with a deer and autumn leaves"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_2045.JPG"
+                alt="Coral-colored T-shirt with a hand-painted landscape"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_2112.JPG"
+                alt="Pink sweater with colorful Christmas designs"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_2193.JPG"
+                alt="One-of-a-kind hand-painted garment"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="photo">
+              <img
+                src="../IMG_2238.JPG"
+                alt="One-of-a-kind hand-painted garment"
+                loading="lazy"
+              >
+            </figure>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Thanks for stopping by.</span>
+        <div class="social-links">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=61594642867715" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.6V13h2.7v8h3.1Z"></path>
+            </svg>
+            Follow me on Facebook
+          </a>
+          <a class="social-link" href="https://www.instagram.com/tunderr0zsa_art/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+            Follow me on Instagram
+          </a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
